@@ -20,7 +20,7 @@ public class AccountServiceImp implements AccountService{
 		// TODO Auto-generated method stub
 		
 		AccountVo user = accountDao.getAccount(loginInfo.getId());
-		if(passwordEncoder.matches(loginInfo.getPw(), user.getPw())) {
+		if(user != null && passwordEncoder.matches(loginInfo.getPw(), user.getPw())) {
 			return user;
 		}
 		return null;
