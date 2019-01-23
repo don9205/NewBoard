@@ -18,10 +18,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
+	public String homeGet() {
 
 	
 		return "home";
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String homePost(String id,String pw) {
+		System.out.println(id+pw);
+	
+		return "redirect:/";
+	}
 }
