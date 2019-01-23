@@ -26,4 +26,14 @@ public class AccountServiceImp implements AccountService{
 		return null;
 	}
 
+	@Override
+	public boolean signup(AccountVo userInfo) {
+		if(accountDao.getAccount(userInfo.getId()) != null)
+			return false;
+		String encPw = passwordEncoder.encode(userInfo.getPw());
+		userInfo.setPw(encPw);
+		accountDao.setAccount(userInfo);
+		return true;
+	}
+
 }
