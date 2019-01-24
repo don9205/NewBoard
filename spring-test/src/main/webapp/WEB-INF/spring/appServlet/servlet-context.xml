@@ -43,6 +43,8 @@
 		</interceptor>
 		<interceptor>
 			<mapping path="/bbs/register" />
+			<mapping path="/bbs/delete" />
+			<mapping path="/bbs/update" />
 			<beans:ref bean="AuthInterceptor" />
 		</interceptor>
 		<interceptor>

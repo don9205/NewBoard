@@ -4,28 +4,30 @@
 <html>
 <head>
 <title>회원가입</title>
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.css">
 <script src="//code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body>
 	<h1>회원가입</h1>
 	<form method="post" action="<%=request.getContextPath()%>/signup"
 		id="form">
-		<div>
-			<input type="text" name="id" id="id">
-			<button id="dup" type="button">중복체크</button>
+		<div class="form-group">
+			<input type="text" name="id" id="id" class="form-control" placeholder="아이디">
+			<button id="dup" type="button" class="btn btn-outline-primary">중복체크</button>
 		</div>
-		<div>
-			<input type="password" name="pw">
+		<div class="form-group">
+			<input type="password" name="pw" class="form-control" placeholder="비밀번호">
 		</div>
-		<div>
-			<input type="email" name="email">
+		<div class="form-group">
+			<input type="email" name="email" class="form-control" placeholder="이메일">
 		</div>
-		<div>
+		<div class="form-group">
 			<input type="radio" value="male" name="gender" id="male" checked>
 			<label for="male">남성</label> <input type="radio" value="female"
 				name="gender" id="female"> <label for="female">여성</label>
 		</div>
-		<button type="button" id="btnOk">회원가입</button>
+		<button type="button" id="btnOk" class="btn btn-outline-primary">회원가입</button>
 	</form>
 	<script type="text/javascript">
 		var dup = 0;

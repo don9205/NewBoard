@@ -19,6 +19,7 @@ public class UnauthInterceptor extends HandlerInterceptorAdapter {
 		// 있는지 없는지 여부만 확인하면 되기때문에 AccountVo로 형변환 할 필요가없다
 		if(user != null) {
 			response.sendRedirect(request.getContextPath()+"/bbs/list");
+			return false;
 		}
 		return true;
 	}

@@ -1,12 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<%= request.getContextPath()%>/resources/css/bootstrap.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/bootstrap.css">
 </head>
 <body>
 	<table class="table table-bordered">
@@ -18,14 +19,18 @@
 		<c:forEach items="${list}" var="board">
 			<tr>
 				<td>${board.id}</td>
-				<td>${board.title}</td>
+				<td><a
+					href="<%= request.getContextPath()%>/bbs/detail?id=${board.id}">${board.title}</a></td>
 				<td>${board.writer}</td>
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="<%= request.getContextPath() %>/bbs/register">
+	<a href="<%=request.getContextPath()%>/bbs/register">
 		<button class="btn btn-primary">등록</button>
 	</a>
-	
+	<a href="<%=request.getContextPath()%>/">
+		<button class="btn btn-primary">메인으로 돌아가기</button>
+	</a>
+
 </body>
-</html> 
+</html>

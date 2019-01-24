@@ -22,6 +22,7 @@
 			<label for="content">내용:</label>
 			<textarea class="form-control" id="content" name="content"></textarea>
 		</div>
+		
 		<button class="btn btn-outline-primary">등 록</button>
 
 	</form>
