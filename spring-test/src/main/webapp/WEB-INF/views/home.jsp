@@ -17,6 +17,7 @@
 	<input type="password" name="pw"><br>
 	<button class="btn btn-primary">로 그 인</button>
 </form>
-<a href="<%= request.getContextPath()%>/signup">회 원 가 입</a>
+<a href="<%= request.getContextPath()%>/signup">회 원 가 입</a><br>
+<a href="<%= request.getContextPath()%>/bbs/list">글 목 록 이 동</a>
 </body>
 </html>

@@ -23,5 +23,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<a href="<%= request.getContextPath() %>/bbs/register">
+		<button class="btn btn-primary">등록</button>
+	</a>
+	
 </body>
 </html> 
