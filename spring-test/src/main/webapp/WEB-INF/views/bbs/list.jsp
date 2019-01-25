@@ -10,6 +10,11 @@
 	href="<%=request.getContextPath()%>/resources/css/bootstrap.css">
 </head>
 <body>
+	<c:if test="${user != null}">
+		<a href="<%=request.getContextPath()%>/signout">
+			<button class="btn btn-primary">로 그 아 웃</button>
+		</a>
+	</c:if>
 	<table class="table table-bordered">
 		<tr>
 			<td>번호</td>
@@ -31,6 +36,5 @@
 	<a href="<%=request.getContextPath()%>/">
 		<button class="btn btn-primary">메인으로 돌아가기</button>
 	</a>
-
 </body>
 </html>
