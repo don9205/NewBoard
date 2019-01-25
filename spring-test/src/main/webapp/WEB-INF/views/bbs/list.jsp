@@ -15,6 +15,11 @@
 			<button class="btn btn-primary">로 그 아 웃</button>
 		</a>
 	</c:if>
+		<c:if test="${user == null}">
+		<a href="<%=request.getContextPath()%>/">
+			<button class="btn btn-primary">로 그 인</button>
+		</a>
+	</c:if>
 	<table class="table table-bordered">
 		<tr>
 			<td>번호</td>
