@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.green.springtest.service.AccountService;
+import kr.green.springtest.service.BoardService;
 import kr.green.springtest.vo.AccountVo;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class MainController {
+	
+	BoardService boardService;
 	
 	@Autowired
 	AccountService accountService;
