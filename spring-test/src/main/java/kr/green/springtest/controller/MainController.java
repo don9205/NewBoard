@@ -43,6 +43,7 @@ public class MainController {
 		
 		AccountVo user = accountService.signin(loginInfo);
 		model.addAttribute("user",user);
+		
 		return "redirect:/";
 	}
 	

@@ -1,5 +1,6 @@
 package kr.green.springtest.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.green.springtest.pagenation.PageMaker;
+
+import kr.green.springtest.pagenation.Criteria;
 import kr.green.springtest.service.BoardService;
 import kr.green.springtest.vo.AccountVo;
 import kr.green.springtest.vo.BoardVo;
@@ -20,11 +24,33 @@ public class BoardController {
 	@Autowired
 
 	BoardService boardService;
-	@RequestMapping(value="/bbs/list")
-	public String list(Model model) {
-		List<BoardVo> list = boardService.getBoards();
+	@RequestMapping(value="/bbs/list", method=RequestMethod.GET)
+	public String listGet(Model model, HttpServletRequest request, Criteria cri, String search, String tit, String num, String wri, String select) {
+		// List<BoardVo> list = boardService.getBoards();
+		// model.addAttribute("list",list);
+		
+
+		
+		List<BoardVo> getSearch = boardService.getSearchID(search);
+		model.addAttribute("getSearch", getSearch);
+		
+		System.out.println(getSearch);
+		
+		/* 페 이 징 처 리 */
+		PageMaker pageMaker = boardService.getPageMaker(cri, 5);
+		ArrayList list = (ArrayList) boardService.getUsers(cri);
+		model.addAttribute("cri",cri);
 		model.addAttribute("list",list);
+		model.addAttribute("pageMaker",pageMaker);
+		
 		return "bbs/list";
+		
+	}
+	
+	@RequestMapping(value="/bbs/list", method=RequestMethod.POST)
+	public String listPost(Model model, BoardVo boardVo, String search, String select ) {
+
+		return "redirect:/bbs/list";
 	}
 
 	@RequestMapping(value="/bbs/register", method=RequestMethod.GET)

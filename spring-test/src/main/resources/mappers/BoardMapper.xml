@@ -13,14 +13,23 @@
 	</insert>
 	<select id="getBoard"
 		resultType="kr.green.springtest.vo.BoardVo">
-		select * from board where id = #{id} and state = 'I'
+		select * from board where id = #{id} and state = 'Y'
 	</select>
 	<update id="updateBoard">
 		update board
 		set title = #{board.title},
-		    content = #{board.content},
-		    state = #{board.state}
+		content =
+		#{board.content},
+		state = #{board.state}
 		where id = #{board.id}
 	</update>
+
+	<select id="getSearchID"
+		resultType="kr.green.springtest.vo.BoardVo">
+		<!-- select * from dbtest where id like concat('%1%'); -->
+		select * from board where id like concat('%',#{search},'%');
+	</select>
+
+
 
 </mapper> 

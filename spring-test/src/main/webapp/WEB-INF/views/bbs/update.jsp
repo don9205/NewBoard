@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>게 시 글 수정</h1>
-	<form action="<%=request.getContextPath()%>/bbs/update" method="post" name="id">
+	<form action="<%=request.getContextPath()%>/bbs/update" method="post">
 		<input type="hidden" value="${board.id}" name="id">
 		<div class="form-group">
 			<label for="title">제목:</label> <input type="text"

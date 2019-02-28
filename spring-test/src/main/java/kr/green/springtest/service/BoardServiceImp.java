@@ -5,7 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.green.springtest.vo.BoardVo;
+
 import kr.green.springtest.dao.BoardDao;
+import kr.green.springtest.pagenation.Criteria;
+import kr.green.springtest.pagenation.PageMaker;
 import kr.green.springtest.vo.AccountVo;
 import kr.green.springtest.vo.BoardVo;
 @Service
@@ -58,6 +62,30 @@ public class BoardServiceImp implements BoardService {
 		return true;
 	}
 
+  // 페이징처리 메소드
+  @Override
+  public PageMaker getPageMaker(Criteria cri, int displayPageNum) {
+    int totalCount = boardDao.getCountUserLists(cri);
+    
+    PageMaker pageMaker = new PageMaker();
+    pageMaker.setCriteria(cri);
+    pageMaker.setDisplayPageNum(displayPageNum);
+    pageMaker.setTotalCount(totalCount);
+    
+    return pageMaker;
+    
+  }
+
+  @Override  //페이징처리시 필요
+  public List<BoardVo> getUsers(Criteria cri) {
+    return boardDao.getUserLists(cri);
+  }
+
+	@Override
+	public List<BoardVo> getSearchID(String search) {
+		// TODO Auto-generated method stub
+		return boardDao.getSearchID(search);
+	}
 
 
 
